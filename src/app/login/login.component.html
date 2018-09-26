@@ -1,0 +1,51 @@
+<p>
+  login works!</p>
+  <input (keyup)="myFunction2()" [(ngModel)]="title">
+  <textarea (keydown)=onKeydownEvent($event)></textarea>
+  <input [(ngModel)]="title">
+  <div (click)="myFunction()">CLICKME</div>
+
+<h1 *ngIf="isUser">Black</h1>
+<h1 *ngIf="!isUser">White</h1>
+
+
+
+
+<div>
+  <span *ngIf = "isavailable; then condition1 else condition2">
+     Condition is valid.
+  </span>
+  <ng-template #condition1>Condition is valid</ng-template>
+  <ng-template #condition2>Condition is invalid</ng-template>
+</div>
+
+<div [ngClass]="{'t1':isChangeColor, 't2': !isChangeColor}">
+  <div *ngFor ='let user of users'>
+    <span >{{user.name}}</span>
+    <br/>
+  </div>
+</div>
+
+<div>
+    <span>{{testTitle}}</span>
+    <br/>
+<span>{{testTitle | uppercase}}</span>
+<br/>
+<span>{{testTitle | lowercase}}</span>
+<br/>
+</div>
+
+<div>
+    <span>{{birthday}}</span>
+    <br/>
+    <span>{{ birthday | date }}</span>
+{{ birthday | date:'medium' }}
+<br/>
+{{ birthday | date:'shortTime' }}
+<br/>
+{{ birthday | date:'mmss' }}
+<br/>
+
+
+<br/>
+</div>
