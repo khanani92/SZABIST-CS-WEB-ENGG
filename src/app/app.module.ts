@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { RouterModule, Routes } from '@angular/router';
 //Main FireBase Module
 import { AngularFireModule } from '@angular/fire';
@@ -27,7 +30,10 @@ import { FireBaseExampleComponent } from './fire-base-example/fire-base-example.
   ],
   imports: [
     BrowserModule,
+
     FormsModule,
+    ReactiveFormsModule,
+
     RouterModule.forRoot([
         {
           path: 'login',

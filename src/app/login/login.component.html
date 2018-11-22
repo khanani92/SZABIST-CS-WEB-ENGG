@@ -1,51 +1,54 @@
-<p>
-  login works!</p>
-  <input (keyup)="myFunction2()" [(ngModel)]="title">
-  <textarea (keydown)=onKeydownEvent($event)></textarea>
-  <input [(ngModel)]="title">
-  <div (click)="myFunction()">CLICKME</div>
-
-<h1 *ngIf="isUser">Black</h1>
-<h1 *ngIf="!isUser">White</h1>
-
-
-
-
-<div>
-  <span *ngIf = "isavailable; then condition1 else condition2">
-     Condition is valid.
-  </span>
-  <ng-template #condition1>Condition is valid</ng-template>
-  <ng-template #condition2>Condition is invalid</ng-template>
-</div>
-
-<div [ngClass]="{'t1':isChangeColor, 't2': !isChangeColor}">
-  <div *ngFor ='let user of users'>
-    <span >{{user.name}}</span>
-    <br/>
+<div class="container">
+  <div class="row">
+      <div class="form_bg">
+          <form #form="ngForm" (ngSubmit)="registerUser(form)">
+               <h2 class="text-center">Template Driven Form</h2>
+              <br/>
+              <div class="form-group">
+                <input type="text" ngModel name="firstName" #firstName="ngModel" minlength="3" maxlength="10" required>
+                <div *ngIf="firstName.touched && !firstName.valid ">
+                  <div *ngIf="firstName.errors.required">
+                    Firstname is required
+                  </div>
+                  <div *ngIf="firstName.errors.minlength">
+                    Firstname minimum length is
+                    {{ firstName.errors.minlength.requiredLength }}
+                  </div>
+                  <div *ngIf="firstName.errors.maxlength">
+                    Firstname maximum length is
+                    {{ firstName.errors.maxlength.requiredLength }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" ngModel name="lastName" #lastName="ngModel" minlength="3" maxlength="10" required>
+                <div *ngIf="lastName.touched && !lastName.valid ">
+                  <div *ngIf="lastName.errors.required">
+                    lastName is required
+                  </div>
+                  <div *ngIf="lastName.errors.minlength">
+                    lastName minimum length is
+                    {{ lastName.errors.minlength.requiredLength }}
+                  </div>
+                  <div *ngIf="lastName.errors.maxlength">
+                    lastName maximum length is
+                    {{ lastName.errors.maxlength.requiredLength }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" ngModel name="email" #email="ngModel" email required>
+                <div *ngIf="email.touched && !email.valid ">
+                  <span class="help-bpx" *ngIf="email.touched && !email.valid ">Please enter the Email Value</span>
+                </div>
+              </div>
+               <div class="form-group">
+              </div>
+              <br/>
+              <div class="align-center">
+                  <button type="submit" class="btn btn-default" id="register" [disabled]="!form.valid" >Register</button>
+              </div>
+          </form>
+      </div>
   </div>
-</div>
-
-<div>
-    <span>{{testTitle}}</span>
-    <br/>
-<span>{{testTitle | uppercase}}</span>
-<br/>
-<span>{{testTitle | lowercase}}</span>
-<br/>
-</div>
-
-<div>
-    <span>{{birthday}}</span>
-    <br/>
-    <span>{{ birthday | date }}</span>
-{{ birthday | date:'medium' }}
-<br/>
-{{ birthday | date:'shortTime' }}
-<br/>
-{{ birthday | date:'mmss' }}
-<br/>
-
-
-<br/>
 </div>

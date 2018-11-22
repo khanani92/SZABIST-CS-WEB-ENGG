@@ -1,5 +1,11 @@
 <ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.name}}
+  <li class="text" *ngFor="let item of items ">
+    {{item.id}}
+    <br>
+    {{item.data.name}}
+    <br>
+    {{item.data.Detail}}
+    <br>
+    {{item.data.price}}
   </li>
 </ul>
